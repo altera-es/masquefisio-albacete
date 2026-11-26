@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Más Que Fisio Albacete — Clínica de Fisioterapia Avanzada | Propuesta Rediseño 3D Multicapa</title>
+  <meta name="description" content="Más Que Fisio Albacete: Clínica de Fisioterapia de Adela Alventosa y Eva Mª López en Paseo Circunvalación 107. Suelo pélvico, linfedema, deportiva, osteopatía, inducción miofascial y punción seca.">
+  <!-- Open Graph / WhatsApp / Redes Sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Altera · Propuesta Web 3D">
+  <meta property="og:url" content="https://demos.altera-es.com/masquefisio-albacete/">
+  <meta property="og:title" content="Más Que Fisio Albacete — Propuesta de Rediseño Web 3D Multicapa">
+  <meta property="og:description" content="Explora en vivo la nueva experiencia interactiva 3D con efecto zoom, capas de profundidad y catálogo clínico renovado.">
+  <meta property="og:image" content="https://demos.altera-es.com/masquefisio-albacete/og-masquefisio.jpg">
+  <meta property="og:image:secure_url" content="https://demos.altera-es.com/masquefisio-albacete/og-masquefisio.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Más Que Fisio Albacete — Rediseño Web 3D">
+  <meta name="twitter:image" content="https://demos.altera-es.com/masquefisio-albacete/og-masquefisio.jpg">
+  <style>
+    @font-face {
+      font-family: 'Playfair Display';
+      src: url('fuentes/playfair-display-latin-600-normal.woff2') format('woff2');
+      font-weight: 600; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Playfair Display';
+      src: url('fuentes/playfair-display-latin-700-normal.woff2') format('woff2');
+      font-weight: 700; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Playfair Display';
+      src: url('fuentes/playfair-display-latin-600-italic.woff2') format('woff2');
+      font-weight: 600; font-style: italic;
+    }
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('fuentes/plus-jakarta-sans-latin-400-normal.woff2') format('woff2');
+      font-weight: 400; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('fuentes/plus-jakarta-sans-latin-600-normal.woff2') format('woff2');
+      font-weight: 600; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('fuentes/plus-jakarta-sans-latin-700-normal.woff2') format('woff2');
+      font-weight: 700; font-style: normal;
+    }
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('fuentes/plus-jakarta-sans-latin-800-normal.woff2') format('woff2');
+      font-weight: 800; font-style: normal;
+    }
+
+    :root {
+      --bg-obsidian: #071116;
+      --bg-deep: #0B1920;
+      --bg-elevated: rgba(14, 31, 40, 0.72);
+      --bg-mineral: #F2F6F6;
+      --bg-ivory: #FAF8F5;
+      --teal-300: #67DCE5;
+      --teal-400: #38BEC9;
+      --teal-500: #229AA5;
+      --teal-900: #0E373D;
+      --rose-300: #F8A4BC;
+      --rose-400: #EF769A;
+      --rose-500: #D9537B;
+      --gold-300: #E6C79C;
+      --text-light: #F4F8F9;
+      --text-muted: #98B1B8;
+      --text-dark: #0F2027;
+      --text-dark-muted: #4B636B;
+      --border-glass: rgba(255, 255, 255, 0.13);
+      --spring-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg-obsidian);
+      color: var(--text-light);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--teal-400); color: var(--bg-obsidian); }
+    ::-webkit-scrollbar { width: 9px; }
+    ::-webkit-scrollbar-track { background: #060E12; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--teal-400), var(--rose-400));
+      border-radius: 99px;
+    }
+
+    .container { max-width: 1220px; margin: 0 auto; padding: 0 24px; width: 100%; }
+    .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* SCROLL PROGRESS LASER BAR */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 120;
+      background: linear-gradient(90deg, var(--teal-400), var(--rose-400), var(--gold-300));
+      box-shadow: 0 0 14px rgba(56, 190, 201, 0.75);
+      transform-origin: left center;
+    }
+
+    /* NAVBAR SCROLL-TO-PILL GLASSMORPHISM */
+    .nav-wrap {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 24px;
+      transition: padding 0.45s var(--spring-ease);
+      pointer-events: none;
+    }
+    .nav-bar {
+      pointer-events: auto;
+      max-width: 1240px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      padding: 12px 24px;
+      border-radius: 22px;
+      background: rgba(7, 17, 22, 0.52);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      transition: transform 0.45s var(--spring-ease), background 0.35s ease;
+    }
+    .nav-wrap.is-pill { padding: 10px 16px; }
+    .nav-wrap.is-pill .nav-bar {
+      max-width: 1060px;
+      border-radius: 999px;
+      padding: 9px 18px 9px 22px;
+      background: rgba(9, 22, 29, 0.84);
+      border-color: rgba(56, 190, 201, 0.28);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.16);
+    }
+
+    .brand {
+      display: flex; align-items: center; gap: 12px; text-decoration: none; color: #FFF; flex-shrink: 0;
+    }
+    .brand-mark {
+      width: 44px; height: 44px; flex-shrink: 0;
+      filter: drop-shadow(0 4px 12px rgba(56, 190, 201, 0.28));
+      transition: transform 0.4s var(--spring-ease);
+    }
+    .brand:hover .brand-mark { transform: rotate(8deg) scale(1.06); }
+    .brand-name {
+      font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.05; display: block;
+    }
+    .brand-sub {
+      font-size: 9.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--teal-300); display: block; margin-top: 3px;
+    }
+    .brand-sub em { color: var(--rose-300); font-style: normal; }
+
+    .nav-menu { display: flex; align-items: center; gap: 6px; list-style: none; }
+    .nav-item { position: relative; }
+    .nav-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 8px 13px; border-radius: 999px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+      color: #D7E5E8; text-decoration: none;
+      transition: color 0.25s ease, background 0.25s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #FFF;
+      background: rgba(56, 190, 201, 0.16);
+    }
+    .nav-link.active::after {
+      content: ""; width: 5px; height: 5px; border-radius: 99px; background: var(--teal-400);
+    }
+
+    /* GLASS DROPDOWN SUBMENUS */
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 10px); left: 50%;
+      transform: translateX(-50%) translateY(10px) scale(0.97);
+      opacity: 0; pointer-events: none;
+      width: 290px; padding: 10px;
+      border-radius: 20px;
+      background: rgba(10, 24, 32, 0.95);
+      backdrop-filter: blur(22px);
+      border: 1px solid rgba(56, 190, 201, 0.25);
+      box-shadow: 0 24px 52px rgba(0,0,0,0.55);
+      transition: opacity 0.25s ease, transform 0.28s var(--spring-ease);
+    }
+    .nav-item:hover .nav-dropdown {
+      opacity: 1; pointer-events: auto;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+    .drop-item {
+      display: block; padding: 9px 12px; border-radius: 12px;
+      text-decoration: none; color: #E2EEF0; font-size: 12.5px; font-weight: 600;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .drop-item span { display: block; font-size: 11px; color: var(--text-muted); font-weight: 400; margin-top: 1px; }
+    .drop-item:hover { background: rgba(56, 190, 201, 0.14); transform: translateX(3px); color: var(--teal-300); }
+
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--teal-400), var(--teal-500));
+      color: #041317; font-size: 12.5px; font-weight: 800; text-decoration: none;
+      box-shadow: 0 8px 22px rgba(56, 190, 201, 0.34);
+      transition: transform 0.25s var(--spring-ease), opacity 0.25s ease;
+      flex-shrink: 0;
+    }
+    .nav-cta:hover { transform: translateY(-2px) scale(1.02); }
+
+    /* ===================================================================== */
+    /* SECTION 1: 3D MULTILAYER PERSPECTIVE HERO (#inicio) */
+    /* ===================================================================== */
+    .hero-stage {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      perspective: 1400px;
+      overflow: hidden;
+      padding: 120px 24px 80px;
+    }
+    .hero-3d-rig {
+      position: absolute; inset: -4%;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .layer-room {
+      position: absolute; inset: 0;
+      background-image: url('imagenes/01-hero-clinica-arquitectura-16x9.jpg');
+      background-size: cover; background-position: center;
+      transform: translateZ(-90px) scale(1.14);
+      filter: brightness(0.72) contrast(1.06);
+      will-change: transform;
+    }
+    .layer-vignette {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 50% 44%, rgba(7, 17, 22, 0.22) 0%, rgba(7, 17, 22, 0.76) 76%, #071116 100%),
+        linear-gradient(180deg, rgba(7,17,22,0.55) 0%, rgba(7,17,22,0.18) 45%, #071116 100%);
+      transform: translateZ(-25px) scale(1.05);
+      pointer-events: none;
+    }
+    #fascia-canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      transform: translateZ(10px);
+      pointer-events: none; opacity: 0.85;
+    }
+    .layer-arch-front {
+      position: absolute; inset: 0;
+      background-image: url('imagenes/portal-arco-frontal.png');
+      background-size: cover; background-position: center;
+      transform: translateZ(65px) scale(1.03);
+      filter: brightness(0.76) contrast(1.08);
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .hero-content {
+      position: relative; z-index: 10;
+      max-width: 880px; text-align: center;
+      transform-style: preserve-3d;
+    }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 7px 16px; border-radius: 999px;
+      background: rgba(11, 25, 32, 0.74);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(248, 164, 188, 0.36);
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #F8FAFC; margin-bottom: 22px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.32);
+    }
+    .kicker-dot {
+      width: 8px; height: 8px; border-radius: 99px;
+      background: linear-gradient(135deg, var(--rose-400), var(--teal-400));
+      box-shadow: 0 0 10px var(--rose-400);
+    }
+    .hero-title {
+      font-size: clamp(38px, 6vw, 72px);
+      font-weight: 800; letter-spacing: -0.035em; line-height: 1.06;
+      color: #FFFFFF;
+      text-shadow: 0 16px 42px rgba(0, 0, 0, 0.55);
+      margin-bottom: 20px;
+    }
+    .hero-title .serif-accent {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic; font-weight: 600;
+      background: linear-gradient(120deg, var(--teal-300) 0%, #FFFFFF 50%, var(--rose-300) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      padding-right: 6px;
+    }
+    .hero-sub {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: #DAE7EA; max-width: 670px; margin: 0 auto 32px;
+      line-height: 1.65;
+      text-shadow: 0 4px 18px rgba(0,0,0,0.65);
+    }
+    .hero-btns {
+      display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;
+    }
+    .btn-3d-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 30px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--teal-300) 0%, var(--teal-500) 100%);
+      color: #041418; font-weight: 800; font-size: 15px; text-decoration: none;
+      box-shadow: 0 14px 34px rgba(56, 190, 201, 0.42), inset 0 1px 0 rgba(255,255,255,0.6);
+      transition: transform 0.3s var(--spring-ease);
+    }
+    .btn-3d-primary:hover { transform: translateY(-3px) scale(1.03); }
+    .btn-3d-glass {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 26px; border-radius: 999px;
+      background: rgba(14, 31, 40, 0.68);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      color: #FFF; font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: transform 0.3s var(--spring-ease), background 0.3s ease;
+    }
+    .btn-3d-glass:hover { transform: translateY(-3px); background: rgba(255, 255, 255, 0.14); }
+
+    /* FLOATING 3D HUD BADGES IN FOREGROUND Z-PLANE */
+    .hud-float {
+      position: absolute; z-index: 12;
+      padding: 14px 18px; border-radius: 20px;
+      background: rgba(10, 23, 30, 0.76);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 22px 48px rgba(0,0,0,0.45);
+      max-width: 265px;
+      will-change: transform;
+    }
+    .hud-left { bottom: 54px; left: 64px; border-left: 3px solid var(--teal-400); }
+    .hud-right { bottom: 54px; right: 64px; border-left: 3px solid var(--rose-400); }
+    .hud-label { font-size: 10.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-300); display: block; }
+    .hud-right .hud-label { color: var(--rose-300); }
+    .hud-val { font-size: 13.5px; font-weight: 700; color: #FFF; display: block; margin-top: 3px; }
+    .hud-meta { font-size: 11.5px; color: var(--text-muted); display: block; margin-top: 2px; }
+
+    .scroll-cue {
+      position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 12;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .scroll-mouse {
+      width: 22px; height: 34px; border-radius: 99px; border: 1.5px solid rgba(255,255,255,0.32);
+      display: flex; justify-content: center; padding-top: 6px;
+    }
+    .scroll-wheel {
+      width: 3px; height: 7px; border-radius: 99px; background: var(--teal-300);
+      animation: wheelDrop 1.8s ease-in-out infinite;
+    }
+    @keyframes wheelDrop {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(11px); opacity: 0; }
+    }
+
+    /* ===================================================================== */
+    /* SECTION 2: STICKY APPLE-STYLE 3D ZOOM-THROUGH PORTAL (#nosotros) */
+    /* ===================================================================== */
+    .zoom-portal-track {
+      position: relative;
+      height: 290vh;
+      background: var(--bg-obsidian);
+    }
+    .zoom-portal-sticky {
+      position: sticky; top: 0; height: 100vh; width: 100%;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      perspective: 1200px;
+    }
+    .zp-bg-room {
+      position: absolute; inset: 0;
+      background-image: url('imagenes/01-hero-clinica-arquitectura-16x9.jpg');
+      background-size: cover; background-position: center;
+      filter: brightness(0.36) saturate(1.1);
+      transform-origin: center center;
+      will-change: transform, opacity;
+    }
+    .zp-arch-ring {
+      position: absolute; inset: 0;
+      background-image: url('imagenes/portal-arco-frontal.png');
+      background-size: cover; background-position: center;
+      transform-origin: center 48%;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+    /* Concentric 3D orbital rings in perspective */
+    .zp-orbit {
+      position: absolute; border-radius: 9999px; pointer-events: none;
+      border: 1px dashed rgba(56, 190, 201, 0.32);
+      will-change: transform, opacity;
+    }
+    .zp-orbit-1 { width: 560px; height: 560px; }
+    .zp-orbit-2 { width: 820px; height: 820px; border-color: rgba(239, 118, 154, 0.25); }
+
+    .zp-cards-stage {
+      position: relative; z-index: 15; width: 100%; max-width: 1080px; padding: 0 24px;
+      transform-style: preserve-3d;
+    }
+    .nosotros-grid {
+      display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 36px; align-items: center;
+    }
+    .glass-panel-3d {
+      background: rgba(9, 22, 29, 0.80);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 28px;
+      padding: 38px 40px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(255,255,255,0.16);
+      will-change: transform, opacity;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11.5px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--teal-300); margin-bottom: 12px;
+    }
+    .sec-title {
+      font-size: clamp(28px, 3.6vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12;
+      margin-bottom: 16px;
+    }
+    .sec-title em {
+      font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-style: italic;
+      color: var(--rose-300);
+    }
+    .founders-chip {
+      display: flex; align-items: center; gap: 14px;
+      margin-top: 22px; padding: 14px 18px; border-radius: 18px;
+      background: rgba(56, 190, 201, 0.10);
+      border: 1px solid rgba(56, 190, 201, 0.26);
+    }
+    .founders-badge {
+      width: 44px; height: 44px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--teal-400), var(--rose-400));
+      color: #061318; font-weight: 800; font-size: 14px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .values-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .value-card-z {
+      background: rgba(14, 31, 40, 0.78);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px; padding: 22px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+      will-change: transform, opacity;
+    }
+    .val-num {
+      font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+      font-size: 26px; font-weight: 700; color: var(--teal-300); line-height: 1;
+    }
+    .value-card-z:nth-child(even) .val-num { color: var(--rose-300); }
+    .val-name { font-size: 15px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; margin: 8px 0 6px; color: #FFF; }
+    .val-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+
+    .zoom-progress-pill {
+      position: absolute; bottom: 24px; right: 28px; z-index: 20;
+      padding: 7px 14px; border-radius: 999px;
+      background: rgba(8, 20, 26, 0.8); border: 1px solid rgba(255,255,255,0.14);
+      font-size: 11px; font-weight: 700; color: var(--text-muted);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .zoom-bar-mini { width: 64px; height: 4px; border-radius: 99px; background: rgba(255,255,255,0.14); overflow: hidden; }
+    .zoom-bar-fill { height: 100%; width: 20%; background: var(--teal-400); }
+
+    /* ===================================================================== */
+    /* SECTION 3: SERVICIOS — UNIDADES CLÍNICAS EN TARJETAS 3D TILT (#servicios) */
+    /* ===================================================================== */
+    .servicios-section {
+      position: relative;
+      background: var(--bg-mineral);
+      color: var(--text-dark);
+      padding: 104px 0 96px;
+      border-radius: 44px 44px 0 0;
+      margin-top: -36px; z-index: 25;
+      box-shadow: 0 -24px 60px rgba(0,0,0,0.45);
+    }
+    .sec-head-center { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+    .eyebrow-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      background: rgba(34, 154, 165, 0.12); color: var(--teal-900);
+      font-size: 11.5px; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .sec-head-center h2 {
+      font-size: clamp(30px, 4vw, 48px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12;
+      color: var(--text-dark); margin-bottom: 14px;
+    }
+    .sec-head-center h2 em {
+      font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 600; color: var(--teal-500);
+    }
+    .sec-head-center p { font-size: 16.5px; color: var(--text-dark-muted); }
+
+    .units-3d-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+      perspective: 1200px;
+    }
+    .tilt-card {
+      position: relative;
+      background: #FFFFFF;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 32, 39, 0.08);
+      box-shadow: 0 20px 45px rgba(14, 55, 61, 0.08);
+      transform-style: preserve-3d;
+      cursor: pointer;
+      transition: transform 0.18s ease-out, box-shadow 0.3s ease;
+      display: grid; grid-template-columns: 0.92fr 1.08fr;
+      min-height: 320px;
+    }
+    .tilt-card:hover {
+      box-shadow: 0 30px 65px rgba(14, 55, 61, 0.16);
+    }
+    .tilt-glare {
+      position: absolute; inset: 0; pointer-events: none; z-index: 5;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.45), transparent 60%);
+      opacity: 0; transition: opacity 0.25s ease;
+    }
+    .tilt-card:hover .tilt-glare { opacity: 1; }
+
+    .unit-img-wrap {
+      position: relative; overflow: hidden; height: 100%; min-height: 260px;
+    }
+    .unit-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.65s var(--spring-ease);
+    }
+    .tilt-card:hover .unit-img-wrap img { transform: scale(1.09); }
+    .unit-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(7,17,22,0.05) 40%, rgba(7,17,22,0.55) 100%);
+    }
+    .unit-tag-float {
+      position: absolute; top: 16px; left: 16px; z-index: 3;
+      padding: 5px 12px; border-radius: 999px;
+      background: rgba(7, 17, 22, 0.78); backdrop-filter: blur(10px);
+      color: var(--teal-300); font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      transform: translateZ(30px);
+    }
+
+    .unit-body {
+      padding: 28px 28px 26px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transform: translateZ(26px);
+    }
+    .unit-title {
+      font-size: 21px; font-weight: 800; letter-spacing: -0.02em; color: var(--text-dark);
+      margin-bottom: 10px; line-height: 1.2;
+    }
+    .unit-desc { font-size: 14px; color: var(--text-dark-muted); line-height: 1.62; margin-bottom: 16px; }
+    .unit-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+    .u-pill {
+      font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 99px;
+      background: #EBF3F4; color: var(--teal-900);
+    }
+    .unit-link {
+      font-size: 13px; font-weight: 800; color: var(--teal-500);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+
+    /* COMPLEMENTARY SPECIALTIES STRIP (PILATES, PODOLOGÍA, NUTRICIÓN) */
+    .comp-strip {
+      margin-top: 34px;
+      padding: 26px 32px;
+      border-radius: 26px;
+      background: linear-gradient(120deg, #0B1D24 0%, #132E38 100%);
+      color: #FFF;
+      display: grid; grid-template-columns: 1.1fr 2fr; gap: 24px; align-items: center;
+      box-shadow: 0 20px 48px rgba(11, 29, 36, 0.18);
+    }
+    .comp-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .comp-item {
+      padding: 15px 16px; border-radius: 18px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      transition: transform 0.25s var(--spring-ease), background 0.25s ease;
+    }
+    .comp-item:hover { transform: translateY(-4px); background: rgba(56,190,201,0.14); }
+    .comp-item strong { display: block; font-size: 14px; color: #FFF; margin-bottom: 3px; }
+    .comp-item span { font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block; }
+
+    /* ===================================================================== */
+    /* SECTION 4: TRATAMIENTOS — STICKY 3D STACKING DECK (#tratamientos) */
+    /* ===================================================================== */
+    .tratamientos-section {
+      background: var(--bg-obsidian);
+      padding: 108px 0 116px;
+      position: relative;
+    }
+    .stack-deck {
+      display: flex; flex-direction: column; gap: 36px;
+      max-width: 1080px; margin: 0 auto;
+      perspective: 1300px;
+    }
+    .stack-card-3d {
+      position: sticky;
+      top: 104px;
+      background: linear-gradient(145deg, rgba(15, 33, 43, 0.96), rgba(8, 20, 27, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 32px;
+      overflow: hidden;
+      display: grid; grid-template-columns: 1.05fr 0.95fr;
+      min-height: 410px;
+      box-shadow: 0 -16px 50px rgba(0, 0, 0, 0.55), 0 28px 60px rgba(0, 0, 0, 0.45);
+      transform-origin: center top;
+      transition: transform 0.35s var(--spring-ease);
+    }
+    .stack-card-3d:nth-child(2) { top: 124px; }
+    .stack-card-3d:nth-child(3) { top: 144px; }
+    .stack-card-3d:nth-child(4) { top: 164px; }
+
+    .stack-info {
+      padding: 44px 46px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .stack-index {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--teal-300); margin-bottom: 14px;
+    }
+    .stack-card-3d:nth-child(even) .stack-index { color: var(--rose-300); }
+    .stack-h3 {
+      font-size: clamp(26px, 3vw, 36px); font-weight: 800; letter-spacing: -0.025em;
+      color: #FFF; line-height: 1.15; margin-bottom: 16px;
+    }
+    .stack-p { font-size: 16px; color: #C2D4D8; line-height: 1.7; margin-bottom: 22px; }
+    .stack-highlights { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .s-chip {
+      padding: 6px 13px; border-radius: 99px; font-size: 12px; font-weight: 700;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: #E8F2F4;
+    }
+    .stack-cta {
+      align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 99px;
+      background: rgba(56, 190, 201, 0.16); border: 1px solid rgba(56, 190, 201, 0.45);
+      color: var(--teal-300); font-size: 13.5px; font-weight: 800; text-decoration: none;
+      transition: transform 0.25s var(--spring-ease), background 0.25s ease;
+    }
+    .stack-cta:hover { transform: translateX(4px); background: var(--teal-400); color: #051418; }
+
+    .stack-visual { position: relative; overflow: hidden; min-height: 320px; }
+    .stack-visual img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.7s var(--spring-ease);
+    }
+    .stack-card-3d:hover .stack-visual img { transform: scale(1.07); }
+    .stack-visual::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(11,25,32,0.85) 0%, rgba(11,25,32,0.05) 36%);
+      pointer-events: none;
+    }
+
+    /* ===================================================================== */
+    /* SECTION 5: CONVENIOS — HOLOGRAPHIC 3D PASS CARDS (#convenios) */
+    /* ===================================================================== */
+    .convenios-section {
+      background: var(--bg-ivory);
+      color: var(--text-dark);
+      padding: 100px 0;
+      position: relative;
+    }
+    .conv-grid {
+      display: grid; grid-template-columns: 1fr 1.15fr; gap: 30px;
+      perspective: 1100px;
+    }
+    .holo-card {
+      position: relative; overflow: hidden;
+      border-radius: 30px; padding: 38px;
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease-out;
+    }
+    .holo-vip {
+      background: linear-gradient(135deg, #091B22 0%, #133944 55%, #2D1F31 100%);
+      color: #FFF;
+      box-shadow: 0 28px 60px rgba(9, 27, 34, 0.24);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .holo-discount {
+      font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+      font-size: 72px; font-weight: 700; line-height: 1;
+      background: linear-gradient(120deg, var(--teal-300), var(--gold-300), var(--rose-300));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin: 10px 0 14px;
+    }
+    .holo-partners {
+      background: #FFFFFF;
+      border: 1px solid rgba(15, 32, 39, 0.09);
+      box-shadow: 0 22px 50px rgba(15, 32, 39, 0.07);
+    }
+    .partner-logos {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0 22px;
+    }
+    .partner-pill {
+      padding: 16px 12px; border-radius: 18px; text-align: center;
+      background: var(--bg-mineral); border: 1px solid rgba(34, 154, 165, 0.22);
+      font-weight: 800; font-size: 13.5px; letter-spacing: 0.04em; color: var(--teal-900);
+    }
+    .partner-pill small { display: block; font-size: 11px; color: var(--rose-500); margin-top: 3px; font-weight: 700; }
+    .conv-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 13.5px; color: var(--text-dark-muted); }
+    .conv-list li::before { content: "✓ "; color: var(--teal-500); font-weight: 800; }
+
+    /* ===================================================================== */
+    /* SECTION 6: CONTACTO & MAPA 3D ALBACETE (#contacto) */
+    /* ===================================================================== */
+    .contacto-section {
+      background: var(--bg-obsidian);
+      padding: 104px 0 88px;
+      position: relative;
+    }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.05fr; gap: 36px; align-items: stretch;
+    }
+    .contact-info-card {
+      background: rgba(14, 31, 40, 0.80);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 30px; padding: 38px;
+      display: flex; flex-direction: column; justify-content: space-between; gap: 26px;
+    }
+    .info-rows { display: flex; flex-direction: column; gap: 16px; }
+    .info-row {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 16px; border-radius: 18px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    }
+    .info-ico {
+      width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0;
+      background: rgba(56,190,201,0.15); color: var(--teal-300);
+      display: flex; align-items: center; justify-content: center; font-size: 18px;
+    }
+    .info-row strong { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+    .info-row a, .info-row span { color: #FFF; font-size: 15.5px; font-weight: 700; text-decoration: none; }
+
+    /* STYLIZED ARCHITECTURAL MAP OF PASEO CIRCUNVALACIÓN 107 ALBACETE */
+    .map-3d-box {
+      position: relative; height: 220px; border-radius: 22px; overflow: hidden;
+      background: #08171E; border: 1px solid rgba(56, 190, 201, 0.30);
+    }
+    .map-pin-pulse {
+      position: absolute; top: 52%; left: 54%; transform: translate(-50%, -50%);
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 14px; border-radius: 99px;
+      background: rgba(7, 17, 22, 0.92); border: 1.5px solid var(--teal-400);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.6);
+      font-size: 12px; font-weight: 800; color: #FFF; white-space: nowrap;
+    }
+    .pin-beacon {
+      width: 10px; height: 10px; border-radius: 99px; background: var(--rose-400);
+      box-shadow: 0 0 0 6px rgba(239, 118, 154, 0.28);
+    }
+
+    /* BOOKING FORM */
+    .contact-form-card {
+      background: rgba(14, 31, 40, 0.65);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 30px; padding: 40px;
+    }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 13px 15px; border-radius: 14px;
+      background: rgba(5, 13, 18, 0.75); border: 1px solid rgba(255,255,255,0.14);
+      color: #FFF; font-family: inherit; font-size: 14px;
+      outline: none; transition: border-color 0.2s ease;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--teal-400); }
+    .rgpd-checks { display: flex; flex-direction: column; gap: 8px; margin: 14px 0 20px; font-size: 12px; color: var(--text-muted); }
+    .rgpd-checks label { display: flex; align-items: flex-start; gap: 9px; cursor: pointer; }
+    .submit-btn {
+      width: 100%; padding: 15px 24px; border: none; border-radius: 16px; cursor: pointer;
+      background: linear-gradient(135deg, var(--teal-400), var(--rose-400));
+      color: #051317; font-family: inherit; font-size: 15px; font-weight: 800;
+      box-shadow: 0 12px 30px rgba(56, 190, 201, 0.30);
+      transition: transform 0.25s var(--spring-ease);
+    }
+    .submit-btn:hover { transform: translateY(-2px); }
+
+    /* MODAL FOR UNIT DETAILS */
+    .unit-modal-backdrop {
+      position: fixed; inset: 0; z-index: 150;
+      background: rgba(4, 11, 15, 0.80); backdrop-filter: blur(12px);
+      display: none; align-items: center; justify-content: center; padding: 24px;
+    }
+    .unit-modal-backdrop.open { display: flex; }
+    .unit-modal-box {
+      max-width: 620px; width: 100%;
+      background: #0D2028; border: 1px solid rgba(56,190,201,0.35);
+      border-radius: 28px; padding: 34px; color: #FFF;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.65);
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: #040B0E; border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 56px 0 34px; font-size: 13px; color: var(--text-muted);
+    }
+    .footer-cols { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 36px; }
+    .footer-cols h4 { color: #FFF; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
+    .footer-cols ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-cols a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-cols a:hover { color: var(--teal-300); }
+    .footer-bottom {
+      padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12px;
+    }
+
+    .mob-menu-btn {
+      display: none; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+      color: #FFF; width: 40px; height: 40px; border-radius: 12px; font-size: 20px;
+      align-items: center; justify-content: center; cursor: pointer;
+    }
+    .mob-drawer {
+      display: none; position: fixed; top: 82px; left: 16px; right: 16px; z-index: 110;
+      background: rgba(8, 20, 27, 0.96); backdrop-filter: blur(22px);
+      border: 1px solid rgba(56,190,201,0.32); border-radius: 22px; padding: 16px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.65); flex-direction: column; gap: 6px;
+    }
+    .mob-drawer.open { display: flex; }
+    .mob-drawer a {
+      padding: 12px 16px; border-radius: 12px; color: #F1F8F9; text-decoration: none;
+      font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .mob-drawer a:active, .mob-drawer a:hover { background: rgba(56,190,201,0.16); color: var(--teal-300); }
+
+    @media (max-width: 980px) {
+      .nav-menu, .hud-float { display: none; }
+      .mob-menu-btn { display: inline-flex; }
+      .nav-cta span:last-child { display: none; }
+      .nav-cta { padding: 9px 14px; font-size: 12px; }
+      .brand-name { font-size: 17px; }
+      .hero-stage { min-height: 100svh; padding: 108px 18px 64px; }
+      .zoom-portal-track { height: 220vh; }
+      .glass-panel-3d { padding: 24px 22px; }
+      .values-stack { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .value-card-z { padding: 14px; }
+      .val-desc { font-size: 11.5px; }
+      .stack-info { padding: 28px 24px; }
+      .holo-card, .contact-info-card, .contact-form-card { padding: 26px 22px; }
+      .form-grid-2, .partner-logos, .conv-list { grid-template-columns: 1fr; }
+      .nosotros-grid, .units-3d-grid, .tilt-card, .comp-strip, .comp-badges, .stack-card-3d, .conv-grid, .contact-grid, .footer-cols {
+        grid-template-columns: 1fr;
+      }
+      .stack-card-3d { position: relative; top: auto !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA LÁSER DE PROGRESO DE SCROLL -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- NAVBAR GLASSMORPHISM CON TRANSFORMACIÓN A PILL Y LOS 6 MENÚS OFICIALES -->
+  <div class="nav-wrap" id="nav-wrap">
+    <header class="nav-bar">
+      <a href="#inicio" class="brand">
+        <!-- Logotipo evolucionado fiel al isotipo real de Más Que Fisio (Mano Rosa Coral arriba + Mano Turquesa abajo) -->
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="handPink" x1="8" y1="6" x2="56" y2="34" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#F9A8C0"/>
+              <stop offset="100%" stop-color="#E05682"/>
+            </linearGradient>
+            <linearGradient id="handTeal" x1="8" y1="30" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#6CE4EC"/>
+              <stop offset="100%" stop-color="#1E9BA6"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 31C12 17.8 22.8 8 36 8C44.8 8 52.4 12.8 56 20.2C51.6 15.6 45.2 13.2 38.2 13.8C27.2 14.8 18.5 22.4 16.5 32.5L12 31Z" fill="url(#handPink)"/>
+          <path d="M31 15.5C35.8 14.8 40.8 16.6 44.2 20.2" stroke="#F9A8C0" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M52 33C52 46.2 41.2 56 28 56C19.2 56 11.6 51.2 8 43.8C12.4 48.4 18.8 50.8 25.8 50.2C36.8 49.2 45.5 41.6 47.5 31.5L52 33Z" fill="url(#handTeal)"/>
+          <path d="M33 48.5C28.2 49.2 23.2 47.4 19.8 43.8" stroke="#6CE4EC" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <span class="brand-name">Más Que Fisio</span>
+          <span class="brand-sub">Clínica <em>de</em> Fisioterapia · Albacete</span>
+        </div>
+      </a>
+
+      <!-- LOS 6 MENÚS EXACTOS DE MASQUEFISIOALBACETE.COM -->
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#inicio" class="nav-link active" data-sec="inicio">Inicio</a></li>
+        <li class="nav-item"><a href="#nosotros" class="nav-link" data-sec="nosotros">Nosotros</a></li>
+        <li class="nav-item">
+          <a href="#servicios" class="nav-link" data-sec="servicios">Servicios ▾</a>
+          <div class="nav-dropdown">
+            <a href="#servicios" class="drop-item" onclick="openUnitModal('pelvico')">Unidad Suelo Pélvico <span>Uroginecología, preparto, postparto y dolor pélvico</span></a>
+            <a href="#servicios" class="drop-item" onclick="openUnitModal('linfedema')">Unidad Linfedema <span>Linfedema primario, secundario y lipedema</span></a>
+            <a href="#servicios" class="drop-item" onclick="openUnitModal('deportiva')">Fisioterapia Deportiva <span>Prevención, readaptación y lesiones deportivas</span></a>
+            <a href="#servicios" class="drop-item" onclick="openUnitModal('geriatrica')">Fisioterapia Geriátrica y Neurológica <span>Autonomía funcional, párkinson y hemiplejia</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#tratamientos" class="nav-link" data-sec="tratamientos">Tratamientos ▾</a>
+          <div class="nav-dropdown">
+            <a href="#trat-manual" class="drop-item">Terapia Manual <span>Valoración y tratamiento articular, muscular y tendinoso</span></a>
+            <a href="#trat-miofascial" class="drop-item">Inducción Miofascial <span>Liberación tridimensional del sistema fascial</span></a>
+            <a href="#trat-osteopatia" class="drop-item">Osteopatía <span>Medicina manual integral: el cuerpo como un todo</span></a>
+            <a href="#trat-puncion" class="drop-item">Punción Seca <span>Abordaje preciso de puntos gatillo y contracturas</span></a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="#convenios" class="nav-link" data-sec="convenios">Convenios</a></li>
+        <li class="nav-item"><a href="#contacto" class="nav-link" data-sec="contacto">Contacto</a></li>
+      </ul>
+
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="#contacto" class="nav-cta">
+          <span>Pedir Cita</span>
+          <span>→</span>
+        </a>
+        <button class="mob-menu-btn" onclick="document.getElementById('mob-drawer').classList.toggle('open')" aria-label="Menú">☰</button>
+      </div>
+    </header>
+  </div>
+  <nav class="mob-drawer" id="mob-drawer" onclick="if(event.target.tagName==='A') this.classList.remove('open')">
+    <a href="#inicio">Inicio</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios (4 Unidades)</a>
+    <a href="#tratamientos">Tratamientos</a>
+    <a href="#convenios">Convenios Albacete</a>
+    <a href="#contacto">Contacto y Cita</a>
+  </nav>
+
+  <!-- ===================================================================== -->
+  <!-- 1. INICIO: HERO ESCÉNICO 3D MULTICAPA CON PROFUNDIDAD REAL EN Z -->
+  <!-- ===================================================================== -->
+  <section class="hero-stage" id="inicio">
+    <div class="hero-3d-rig" id="hero-rig">
+      <!-- Plano Z -90px: Interior arquitectónico de la clínica -->
+      <div class="layer-room" id="layer-room"></div>
+      <!-- Plano Z -25px: Atmósfera radial -->
+      <div class="layer-vignette"></div>
+      <!-- Plano Z +10px: Red 3D interactiva de partículas y ondas miofasciales -->
+      <canvas id="fascia-canvas"></canvas>
+      <!-- Plano Z +65px: Arco de piedra travertino recortado en primer plano -->
+      <div class="layer-arch-front" id="layer-arch"></div>
+    </div>
+
+    <!-- Plano Z +95px: Titular y Llamadas a la acción -->
+    <div class="hero-content" id="hero-text-layer">
+      <div class="hero-kicker">
+        <span class="kicker-dot"></span>
+        <span>Cuidamos de ti · Conócete, Acéptate y Supérate</span>
+      </div>
+
+      <h1 class="hero-title">
+        Más que aliviar el dolor.<br>
+        <span class="serif-accent">Transformamos</span> tu movimiento.
+      </h1>
+
+      <p class="hero-sub">
+        Clínica de fisioterapia integral y avanzada en Albacete dirigida por <strong>Adela Alventosa</strong> y <strong>Eva Mª López</strong>. Tecnología clínica, terapia manual y movimiento consciente en un espacio diseñado para tu recuperación.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#contacto" class="btn-3d-primary">
+          <span>Solicitar Cita Previa</span>
+          <span>→</span>
+        </a>
+        <a href="#servicios" class="btn-3d-glass">
+          <span>Explorar Unidades Clínicas</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Plano Z +140px: Tarjetas HUD flotantes multicapa -->
+    <div class="hud-float hud-left" id="hud-left">
+      <span class="hud-label">Ubicación & Horario</span>
+      <span class="hud-val">Paseo Circunvalación 107, Albacete</span>
+      <span class="hud-meta">Lun – Vie · 10:00–14:00 y 17:00–21:00 h</span>
+    </div>
+
+    <div class="hud-float hud-right" id="hud-right">
+      <span class="hud-label">Dirección Clínica</span>
+      <span class="hud-val">Adela Alventosa & Eva Mª López</span>
+      <span class="hud-meta">Fisioterapeutas Colegiadas en Castilla-La Mancha</span>
+    </div>
+
+    <div class="scroll-cue">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Haz scroll para entrar en 3D</span>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 2. NOSOTROS: PORTAL INTERACTIVO SCROLL-ZOOM 3D MULTICAPA -->
+  <!-- ===================================================================== -->
+  <section class="zoom-portal-track" id="nosotros">
+    <div class="zoom-portal-sticky">
+      <div class="zp-bg-room" id="zp-bg"></div>
+      <div class="zp-orbit zp-orbit-1" id="zp-orb-1"></div>
+      <div class="zp-orbit zp-orbit-2" id="zp-orb-2"></div>
+      <div class="zp-arch-ring" id="zp-arch"></div>
+
+      <div class="zp-cards-stage">
+        <div class="nosotros-grid">
+          <!-- Panel Principal Nosotros -->
+          <div class="glass-panel-3d" id="nos-main-card">
+            <span class="eyebrow">● ¡Conócenos! · Nuestra Filosofía</span>
+            <h2 class="sec-title">
+              Entendemos tu salud como un <em>sistema completo</em>
+            </h2>
+            <p style="font-size:15.5px;color:#CEE0E3;margin-bottom:14px;">
+              En <strong>Más Que Fisio</strong> abordamos mucho más que una lesión aislada. Acompañamos tu recuperación integrando el cuidado del tejido con los pilares esenciales del bienestar diario: <strong>ejercicio terapéutico, descanso reparador, nutrición y equilibrio activo</strong>.
+            </p>
+            <p style="font-size:14.5px;color:var(--text-muted);">
+              Un equipo en formación continua con instalaciones modernas en Albacete bajo nuestro lema: <em>«Conócete; Acéptate y Supérate»</em>.
+            </p>
+
+            <div class="founders-chip">
+              <div class="founders-badge">AE</div>
+              <div>
+                <strong style="display:block;font-size:14.5px;color:#FFF;">Adela Alventosa & Eva Mª López</strong>
+                <span style="font-size:12.5px;color:var(--teal-300);">Fundadoras · Fisioterapeutas Colegiadas en Castilla-La Mancha</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Los 4 Valores Reales de /nosotros/ en Capas Z Escalonadas -->
+          <div class="values-stack" id="nos-values-grid">
+            <div class="value-card-z">
+              <span class="val-num">01</span>
+              <h3 class="val-name">Seriedad</h3>
+              <p class="val-desc">Valoración clínica rigurosa e individualizada desde la primera sesión.</p>
+            </div>
+            <div class="value-card-z">
+              <span class="val-num">02</span>
+              <h3 class="val-name">Capacidad</h3>
+              <p class="val-desc">Especialización continua en unidades avanzadas de suelo pélvico, linfedema y neurología.</p>
+            </div>
+            <div class="value-card-z">
+              <span class="val-num">03</span>
+              <h3 class="val-name">Eficacia</h3>
+              <p class="val-desc">Tratamientos basados en evidencia orientados a recuperar tu función sin recaídas.</p>
+            </div>
+            <div class="value-card-z">
+              <span class="val-num">04</span>
+              <h3 class="val-name">Trabajo</h3>
+              <p class="val-desc">Implicación cercana mano a mano contigo en cada etapa de tu evolución.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="zoom-progress-pill">
+        <span>Inmersión 3D</span>
+        <div class="zoom-bar-mini"><div class="zoom-bar-fill" id="zp-bar"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 3. SERVICIOS: LAS 4 UNIDADES CLÍNICAS CON TARJETAS 3D TILT & ZOOM -->
+  <!-- ===================================================================== -->
+  <section class="servicios-section" id="servicios">
+    <div class="container">
+      <div class="sec-head-center">
+        <span class="eyebrow-dark">¿Qué podemos hacer por ti? · Nuestros Servicios</span>
+        <h2>Unidades clínicas <em>especializadas</em></h2>
+        <p>Pasa el cursor sobre cada unidad para explorar su profundidad multicapa o pulsa para ver el abordaje clínico completo.</p>
+      </div>
+
+      <div class="units-3d-grid">
+        <!-- 1. UNIDAD SUELO PÉLVICO -->
+        <article class="tilt-card" onclick="openUnitModal('pelvico')">
+          <div class="tilt-glare"></div>
+          <div class="unit-img-wrap">
+            <span class="unit-tag-float">Unidad 01</span>
+            <img src="imagenes/02-unidad-suelo-pelvico-pilates-1x1.jpg" alt="Unidad de Suelo Pélvico y Pilates Reformer en Más Que Fisio Albacete">
+            <div class="unit-img-overlay"></div>
+          </div>
+          <div class="unit-body">
+            <div>
+              <h3 class="unit-title">Unidad Suelo Pélvico</h3>
+              <p class="unit-desc">
+                La perineología aborda el estudio, prevención y tratamiento integral de los trastornos funcionales del periné, incluido el dolor pélvico.
+              </p>
+              <div class="unit-pills">
+                <span class="u-pill">Urológico · Incontinencias</span>
+                <span class="u-pill">Preparto y Postparto</span>
+                <span class="u-pill">Prolapsos y Coloproctología</span>
+              </div>
+            </div>
+            <span class="unit-link">Ver detalle de la unidad →</span>
+          </div>
+        </article>
+
+        <!-- 2. UNIDAD LINFEDEMA -->
+        <article class="tilt-card" onclick="openUnitModal('linfedema')">
+          <div class="tilt-glare"></div>
+          <div class="unit-img-wrap">
+            <span class="unit-tag-float" style="color:var(--rose-300);">Unidad 02</span>
+            <img src="imagenes/07-unidad-linfedema-detalle-1x1.jpg" alt="Unidad de Linfedema y Drenaje Linfático Manual">
+            <div class="unit-img-overlay"></div>
+          </div>
+          <div class="unit-body">
+            <div>
+              <h3 class="unit-title">Unidad Linfedema</h3>
+              <p class="unit-desc">
+                Tratamiento especializado de las patologías del sistema linfático y venoso mediante drenaje linfático manual y terapia descongestiva.
+              </p>
+              <div class="unit-pills">
+                <span class="u-pill">Linfedema Primario y Secundario</span>
+                <span class="u-pill">Lipedema</span>
+                <span class="u-pill">Drenaje Linfático Manual</span>
+              </div>
+            </div>
+            <span class="unit-link">Ver detalle de la unidad →</span>
+          </div>
+        </article>
+
+        <!-- 3. FISIOTERAPIA DEPORTIVA -->
+        <article class="tilt-card" onclick="openUnitModal('deportiva')">
+          <div class="tilt-glare"></div>
+          <div class="unit-img-wrap">
+            <span class="unit-tag-float">Unidad 03</span>
+            <img src="imagenes/03-fisioterapia-deportiva-1x1.jpg" alt="Fisioterapia Deportiva y Readaptación Funcional">
+            <div class="unit-img-overlay"></div>
+          </div>
+          <div class="unit-body">
+            <div>
+              <h3 class="unit-title">Fisioterapia Deportiva</h3>
+              <p class="unit-desc">
+                Abordaje de lesiones del aparato locomotor tanto en deportistas profesionales como amateurs, acortando tiempos de vuelta segura al deporte.
+              </p>
+              <div class="unit-pills">
+                <span class="u-pill">Readaptación Deportiva</span>
+                <span class="u-pill">Prevención de Recaídas</span>
+                <span class="u-pill">-15% Deportistas Federados</span>
+              </div>
+            </div>
+            <span class="unit-link">Ver detalle de la unidad →</span>
+          </div>
+        </article>
+
+        <!-- 4. FISIOTERAPIA GERIÁTRICA Y NEUROLÓGICA -->
+        <article class="tilt-card" onclick="openUnitModal('geriatrica')">
+          <div class="tilt-glare"></div>
+          <div class="unit-img-wrap">
+            <span class="unit-tag-float" style="color:var(--rose-300);">Unidad 04</span>
+            <img src="imagenes/04-linfedema-geriatrica-neuro-1x1.jpg" alt="Fisioterapia Geriátrica y Neurológica en Albacete">
+            <div class="unit-img-overlay"></div>
+          </div>
+          <div class="unit-body">
+            <div>
+              <h3 class="unit-title">Fisioterapia Geriátrica y Neurológica</h3>
+              <p class="unit-desc">
+                Técnicas especializadas orientadas al adulto mayor y patologías neurológicas para preservar la independencia funcional y calidad de vida diaria.
+              </p>
+              <div class="unit-pills">
+                <span class="u-pill">Párkinson y Hemiplejia</span>
+                <span class="u-pill">Autonomía AVD</span>
+                <span class="u-pill">-15% Mayores de 65 años</span>
+              </div>
+            </div>
+            <span class="unit-link">Ver detalle de la unidad →</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- ÁREAS COMPLEMENTARIAS PRESENTES EN SU WEB -->
+      <div class="comp-strip">
+        <div>
+          <span class="eyebrow" style="margin-bottom:6px;">● Cuidado Integral en Clínica</span>
+          <h3 style="font-size:22px;font-weight:800;line-height:1.2;">Movimiento guiado y salud complementaria</h3>
+        </div>
+        <div class="comp-badges">
+          <div class="comp-item">
+            <strong>Pilates Terapéutico</strong>
+            <span>Grupos reducidos de 4 personas y trabajo controlado de control motor y postura.</span>
+          </div>
+          <div class="comp-item">
+            <strong>Cuidado Podológico</strong>
+            <span>Valoración de pisada, biomecánica del pie y equilibrio articular.</span>
+          </div>
+          <div class="comp-item">
+            <strong>Asesoramiento Nutricional</strong>
+            <span>Apoyo a los procesos inflamatorios, composición corporal y energía diaria.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 4. TRATAMIENTOS: BARAJA APILABLE 3D CON EFECTO PROFUNDIDAD (#tratamientos) -->
+  <!-- ===================================================================== -->
+  <section class="tratamientos-section" id="tratamientos">
+    <div class="container">
+      <div class="sec-head-center" style="color:#FFF;">
+        <span class="eyebrow">● Cuidamos de tu salud cada día · Nuestros Tratamientos</span>
+        <h2 style="color:#FFF;">Técnicas clínicas de <em>alta precisión</em></h2>
+        <p style="color:var(--text-muted);">Desliza hacia abajo para ver cómo cada tratamiento se despliega en capas tridimensionales.</p>
+      </div>
+
+      <div class="stack-deck">
+        <!-- TRATAMIENTO 1: TERAPIA MANUAL -->
+        <article class="stack-card-3d" id="trat-manual">
+          <div class="stack-info">
+            <div>
+              <span class="stack-index">01 · Técnica Base</span>
+              <h3 class="stack-h3">Terapia Manual</h3>
+              <p class="stack-p">
+                Nuestras manos como herramienta principal de escucha y precisión clínica para evaluar y tratar hueso, ligamento, tendón, músculo y fascia, devolviendo la movilidad fisiológica y aliviando el dolor deportivo o cotidiano.
+              </p>
+              <div class="stack-highlights">
+                <span class="s-chip">Masaje Terapéutico y Deportivo</span>
+                <span class="s-chip">Movilización Articular</span>
+                <span class="s-chip">Recuperación Tisular</span>
+              </div>
+            </div>
+            <a href="#contacto" onclick="preselectSubject('Terapia Manual')" class="stack-cta">Solicitar cita de Terapia Manual →</a>
+          </div>
+          <div class="stack-visual">
+            <img src="imagenes/05-terapia-manual-osteopatia-1x1.jpg" alt="Terapia Manual en Más Que Fisio Albacete">
+          </div>
+        </article>
+
+        <!-- TRATAMIENTO 2: INDUCCIÓN MIOFASCIAL -->
+        <article class="stack-card-3d" id="trat-miofascial">
+          <div class="stack-info">
+            <div>
+              <span class="stack-index">02 · Tejido Profundo 3D</span>
+              <h3 class="stack-h3">Inducción Miofascial</h3>
+              <p class="stack-p">
+                Evaluación y tratamiento tridimensional mediante movimientos suaves y presiones sostenidas en todo el sistema fascial para eliminar restricciones profundas, cadenas de compensación y sobrecargas crónicas.
+              </p>
+              <div class="stack-highlights">
+                <span class="s-chip">Liberación Tridimensional</span>
+                <span class="s-chip">Reequilibrio Postural</span>
+                <span class="s-chip">Dolor Crónico y Rigidez</span>
+              </div>
+            </div>
+            <a href="#contacto" onclick="preselectSubject('Inducción Miofascial')" class="stack-cta">Solicitar cita de Inducción Miofascial →</a>
+          </div>
+          <div class="stack-visual">
+            <img src="imagenes/08-induccion-miofascial-detalle-1x1.jpg" alt="Inducción Miofascial Tridimensional">
+          </div>
+        </article>
+
+        <!-- TRATAMIENTO 3: OSTEOPATÍA -->
+        <article class="stack-card-3d" id="trat-osteopatia">
+          <div class="stack-info">
+            <div>
+              <span class="stack-index">03 · Visión Global</span>
+              <h3 class="stack-h3">Osteopatía</h3>
+              <p class="stack-p">
+                Medicina manual que aborda el cuerpo como una unidad funcional indivisible, buscando el origen mecánico de la disfunción a través de la interrelación entre el sistema músculo-esquelético, visceral y craneosacral.
+              </p>
+              <div class="stack-highlights">
+                <span class="s-chip">Estructural, Visceral y Craneal</span>
+                <span class="s-chip">Abordaje de la Causa Raíz</span>
+                <span class="s-chip">Equilibrio Global</span>
+              </div>
+            </div>
+            <a href="#contacto" onclick="preselectSubject('Osteopatía')" class="stack-cta">Solicitar cita de Osteopatía →</a>
+          </div>
+          <div class="stack-visual">
+            <img src="imagenes/01-hero-clinica-arquitectura-16x9.jpg" alt="Consulta de Osteopatía Integral en Más Que Fisio">
+          </div>
+        </article>
+
+        <!-- TRATAMIENTO 4: PUNCIÓN SECA -->
+        <article class="stack-card-3d" id="trat-puncion">
+          <div class="stack-info">
+            <div>
+              <span class="stack-index">04 · Fisioterapia Invasiva</span>
+              <h3 class="stack-h3">Punción Seca</h3>
+              <p class="stack-p">
+                Técnica de alta precisión para desactivar puntos gatillo miofasciales hiperirritables, relajar contracturas rebeldes de forma profunda y acelerar la recuperación funcional del músculo con máxima seguridad e higiene.
+              </p>
+              <div class="stack-highlights">
+                <span class="s-chip">Puntos Gatillo Miofasciales</span>
+                <span class="s-chip">Descarga Muscular Profunda</span>
+                <span class="s-chip">Alivio Rápido y Localizado</span>
+              </div>
+            </div>
+            <a href="#contacto" onclick="preselectSubject('Punción Seca')" class="stack-cta">Solicitar cita de Punción Seca →</a>
+          </div>
+          <div class="stack-visual">
+            <img src="imagenes/06-puncion-seca-precision-1x1.jpg" alt="Punción Seca de Precisión en Más Que Fisio Albacete">
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 5. CONVENIOS: DESCUENTOS ESPECIALES EN ALBACETE (#convenios) -->
+  <!-- ===================================================================== -->
+  <section class="convenios-section" id="convenios">
+    <div class="container">
+      <div class="sec-head-center">
+        <span class="eyebrow-dark">¡Apoyamos a nuestra ciudad! · Convenios Albacete</span>
+        <h2>Convenios y <em>descuentos especiales</em></h2>
+        <p>Acuerdos activos con colectivos, clubes y entidades de Albacete presentando tu acreditación en clínica.</p>
+      </div>
+
+      <div class="conv-grid">
+        <!-- TARJETA VIP 15% -->
+        <div class="holo-card holo-vip tilt-holo">
+          <div>
+            <span class="eyebrow" style="color:var(--gold-300);">● Bonificación Especial Directa</span>
+            <div class="holo-discount">-15%</div>
+            <h3 style="font-size:24px;font-weight:800;margin-bottom:10px;">Deportistas Federados y Jubilados (+65 años)</h3>
+            <p style="font-size:14.5px;color:#C8DCE0;line-height:1.65;">
+              Descuento directo aplicable en nuestros tratamientos de fisioterapia presentando carnet federativo en vigor o acreditación de mayor de 65 años / jubilado <em>(excepto vendajes)</em>.
+            </p>
+          </div>
+          <div style="margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.14);display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--teal-300);font-weight:700;">
+            <span>Acreditación en recepción</span>
+            <a href="#contacto" style="color:#FFF;text-decoration:underline;">Consultar condiciones →</a>
+          </div>
+        </div>
+
+        <!-- TARJETA COLECTIVOS 10% (ADPLA, CONSERVATORIO, EXTRUAL) -->
+        <div class="holo-card holo-partners tilt-holo">
+          <span class="eyebrow-dark" style="margin-bottom:8px;">Convenios Colectivos Albacete · -10% Descuento</span>
+          <h3 style="font-size:24px;font-weight:800;color:var(--text-dark);">Entidades e instituciones adheridas</h3>
+
+          <div class="partner-logos">
+            <div class="partner-pill">ADPLA<small>-10% Convenio</small></div>
+            <div class="partner-pill">CONSERVATORIO<small>-10% Convenio</small></div>
+            <div class="partner-pill">EXTRUAL<small>-10% + Pilates</small></div>
+          </div>
+
+          <p style="font-size:14px;color:var(--text-dark-muted);margin-bottom:14px;">
+            Bonificación del <strong>10 %</strong> aplicable sobre las siguientes especialidades en clínica:
+          </p>
+          <ul class="conv-list">
+            <li>Terapia manual (parcial y completa)</li>
+            <li>Drenaje linfático manual</li>
+            <li>Osteopatía integral</li>
+            <li>Inducción miofascial</li>
+            <li style="grid-column: 1 / -1;">Pilates en turno de mañanas (Grupos reducidos de 4 · Convenio EXTRUAL)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 6. CONTACTO: PASEO CIRCUNVALACIÓN 107 + MAPA 3D + CITA PREVIA (#contacto) -->
+  <!-- ===================================================================== -->
+  <section class="contacto-section" id="contacto">
+    <div class="container">
+      <div class="sec-head-center" style="color:#FFF;">
+        <span class="eyebrow">● Atención Personalizada en Albacete</span>
+        <h2 style="color:#FFF;">Reserva tu <em>cita previa</em></h2>
+        <p style="color:var(--text-muted);">Llámanos directamente en nuestro horario de atención o envíanos tu solicitud y te confirmaremos hueco lo antes posible.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- DATOS REALES + MAPA ESTILIZADO DE PASEO CIRCUNVALACIÓN 107 -->
+        <div class="contact-info-card">
+          <div class="info-rows">
+            <div class="info-row">
+              <div class="info-ico">📍</div>
+              <div>
+                <strong>Dirección Clínica</strong>
+                <span>Paseo Circunvalación 107, Bajo · 02003 Albacete</span>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-ico" style="background:rgba(239,118,154,0.16);color:var(--rose-300);">📞</div>
+              <div>
+                <strong>Teléfonos de Cita Previa</strong>
+                <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:2px;">
+                  <a href="tel:967234051">967 23 40 51</a>
+                  <span style="color:var(--text-muted);">·</span>
+                  <a href="tel:673289103">673 28 91 03</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-ico">🕒</div>
+              <div>
+                <strong>Horario de Atención y Cita Previa</strong>
+                <span>Lunes a Viernes · 10:00 – 14:00 h y 17:00 – 21:00 h</span>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-ico">✉️</div>
+              <div>
+                <strong>Correo Electrónico</strong>
+                <a href="mailto:info@masquefisioalbacete.com">info@masquefisioalbacete.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- MAPA VECTORIAL ARQUITECTÓNICO (Sustituye al iframe vacío actual) -->
+          <div class="map-3d-box">
+            <svg width="100%" height="100%" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="600" height="240" fill="#07141B"/>
+              <!-- Trama urbana estilizada de la Circunvalación y Recinto Ferial de Albacete -->
+              <g stroke="rgba(56,190,201,0.14)" stroke-width="1.2" fill="none">
+                <circle cx="210" cy="95" r="54"/>
+                <circle cx="210" cy="95" r="28"/>
+                <path d="M 30,210 Q 220,185 580,65" stroke="rgba(56,190,201,0.45)" stroke-width="6"/>
+                <path d="M 90,15 L 260,235"/>
+                <path d="M 280,10 L 420,235"/>
+                <path d="M 430,10 L 530,235"/>
+                <path d="M 10,115 L 590,145"/>
+              </g>
+              <text x="165" y="98" fill="rgba(152,177,184,0.45)" font-size="10" font-weight="700">FERIA</text>
+              <text x="365" y="102" fill="rgba(56,190,201,0.65)" font-size="10" font-weight="800" transform="rotate(-17 365 102)">PASEO DE LA CIRCUNVALACIÓN</text>
+            </svg>
+            <a href="https://maps.google.com/?q=Paseo+Circunvalacion+107,+02003+Albacete" target="_blank" rel="noreferrer" class="map-pin-pulse" style="text-decoration:none;">
+              <span class="pin-beacon"></span>
+              <span>Más Que Fisio · Nº 107 (Abrir Mapa ↗)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- FORMULARIO COMPLETO DE CONTACTO / CITA -->
+        <div class="contact-form-card">
+          <h3 style="font-size:22px;font-weight:800;margin-bottom:6px;">Envíanos tu consulta o solicitud</h3>
+          <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:20px;">Te responderemos en horario de clínica para confirmar tu cita.</p>
+
+          <form onsubmit="handleBookingSubmit(event)">
+            <div class="form-grid-2">
+              <div class="field">
+                <label>Nombre completo *</label>
+                <input type="text" required placeholder="Tu nombre y apellidos">
+              </div>
+              <div class="field">
+                <label>Teléfono *</label>
+                <input type="tel" required placeholder="Ej. 600 000 000">
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="field">
+                <label>Correo electrónico *</label>
+                <input type="email" required placeholder="tu@email.com">
+              </div>
+              <div class="field">
+                <label>Población y Provincia</label>
+                <input type="text" value="Albacete" placeholder="Albacete">
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Unidad o Tratamiento de interés</label>
+              <select id="contact-subject">
+                <option value="Valoración General">Valoración General / Primera Cita</option>
+                <option value="Unidad Suelo Pélvico">Unidad Suelo Pélvico</option>
+                <option value="Unidad Linfedema">Unidad Linfedema</option>
+                <option value="Fisioterapia Deportiva">Fisioterapia Deportiva</option>
+                <option value="Fisioterapia Geriátrica y Neurológica">Fisioterapia Geriátrica y Neurológica</option>
+                <option value="Terapia Manual">Terapia Manual</option>
+                <option value="Inducción Miofascial">Inducción Miofascial</option>
+                <option value="Osteopatía">Osteopatía</option>
+                <option value="Punción Seca">Punción Seca</option>
+                <option value="Pilates Grupos Reducidos">Pilates Terapéutico</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>Mensaje o preferencia horaria (Mañanas / Tardes)</label>
+              <textarea rows="3" placeholder="Cuéntanos brevemente el motivo de tu consulta y si prefieres turno de mañana (10-14h) o tarde (17-21h)..."></textarea>
+            </div>
+
+            <div class="rgpd-checks">
+              <label>
+                <input type="checkbox" required style="margin-top:3px;accent-color:var(--teal-400);">
+                <span>He leído y acepto la Política de Privacidad y el tratamiento de datos por CENTRO DE FISIOTERAPIA PISCINA FERIA, SLL para gestionar mi solicitud.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="submit-btn">Solicitar Cita Previa →</button>
+            <div id="form-feedback" style="display:none;margin-top:14px;padding:12px;border-radius:12px;background:rgba(56,190,201,0.16);border:1px solid var(--teal-400);color:#FFF;font-size:13px;font-weight:700;text-align:center;">
+              ✓ ¡Solicitud enviada! El equipo de Más Que Fisio Albacete contactará contigo para confirmar hora.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER LEGAL FIEL A LA ENTIDAD DE MÁS QUE FISIO ALBACETE -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div>
+          <strong style="color:#FFF;font-family:'Playfair Display',serif;font-size:20px;display:block;margin-bottom:8px;">Más Que Fisio · Albacete</strong>
+          <p style="line-height:1.6;max-width:320px;">
+            Clínica de Fisioterapia colegiada en Castilla-La Mancha. Paseo Circunvalación 107, Bajo · 02003 Albacete.<br>
+            CENTRO DE FISIOTERAPIA PISCINA FERIA, SLL (CIF B02256337).
+          </p>
+        </div>
+        <div>
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#tratamientos">Tratamientos</a></li>
+            <li><a href="#convenios">Convenios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Especialidades</h4>
+          <ul>
+            <li><a href="#servicios">Suelo Pélvico y Linfedema</a></li>
+            <li><a href="#servicios">Fisioterapia Deportiva y Neurológica</a></li>
+            <li><a href="#tratamientos">Osteopatía e Inducción Miofascial</a></li>
+            <li><a href="#tratamientos">Terapia Manual y Punción Seca</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Información Legal</h4>
+          <ul>
+            <li><a href="#contacto">Política de Privacidad (Sus datos seguros)</a></li>
+            <li><a href="#contacto">Política de Protección de Datos</a></li>
+            <li><a href="#contacto">Política de Cookies</a></li>
+            <li><a href="#contacto">Configuración de Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© Más Que Fisio Albacete · Todos los derechos reservados.</span>
+        <span>Propuesta de Rediseño 3D Multicapa · Altera</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DETALLE DE UNIDAD CLÍNICA -->
+  <div class="unit-modal-backdrop" id="unit-modal" onclick="if(event.target===this) closeUnitModal()">
+    <div class="unit-modal-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <span class="eyebrow" id="m-tag" style="margin:0;">● Unidad Especializada</span>
+        <button onclick="closeUnitModal()" style="background:none;border:none;color:#FFF;font-size:22px;cursor:pointer;">✕</button>
+      </div>
+      <h3 id="m-title" style="font-size:26px;font-weight:800;margin-bottom:12px;"></h3>
+      <p id="m-body" style="font-size:15px;color:#CBE0E4;line-height:1.7;margin-bottom:24px;"></p>
+      <a href="#contacto" id="m-cta" onclick="closeUnitModal()" class="btn-3d-primary" style="font-size:14px;padding:13px 24px;">Pedir cita en esta unidad →</a>
+    </div>
+  </div>
+
+  <!-- MOTOR INTERACTIVO 60FPS: PARALLAX 3D, RED MIOFASCIAL CANVAS, SCROLL-ZOOM Y TILT -->
+  <script>
+    const UNIT_DATA = {
+      pelvico: {
+        tag: 'Unidad 01 · Perineología',
+        title: 'Unidad de Suelo Pélvico',
+        body: 'Abordaje integral, respetuoso y personalizado de las disfunciones del suelo pélvico en sus tres vertientes: urológica (incontinencia urinaria de esfuerzo o urgencia), ginecológica (preparación al parto, recuperación postparto, prolapsos y dolor o disfunciones sexuales) y coloproctológica (estreñimiento distal y control esfinteriano).'
+      },
+      linfedema: {
+        tag: 'Unidad 02 · Sistema Linfático',
+        title: 'Unidad de Linfedema y Lipedema',
+        body: 'Evaluación y tratamiento específico del linfedema primario, linfedema secundario (postquirúrgico u oncológico) y lipedema mediante drenaje linfático manual especializado, medidas de contención y pautas activas para reducir el volumen, la pesadez y mejorar tu bienestar diario.'
+      },
+      deportiva: {
+        tag: 'Unidad 03 · Rendimiento y Recuperación',
+        title: 'Fisioterapia Deportiva',
+        body: 'Tratamiento y readaptación funcional de lesiones musculares, tendinosas y ligamentosas en deportistas amateurs y de competición. Combinamos terapia manual, punción seca y ejercicio terapéutico controlado, con un 15% de descuento especial para deportistas federados.'
+      },
+      geriatrica: {
+        tag: 'Unidad 04 · Movilidad y Autonomía',
+        title: 'Fisioterapia Geriátrica y Neurológica',
+        body: 'Acompañamiento cercano orientado a adultos mayores y personas con patologías neurológicas (hemiplejia, enfermedad de Parkinson, alteraciones del equilibrio) para preservar la marcha, la fuerza funcional y la máxima independencia en las actividades de la vida diaria.'
+      }
+    };
+
+    function openUnitModal(key) {
+      const d = UNIT_DATA[key];
+      if (!d) return;
+      document.getElementById('m-tag').textContent = '● ' + d.tag;
+      document.getElementById('m-title').textContent = d.title;
+      document.getElementById('m-body').textContent = d.body;
+      document.getElementById('m-cta').onclick = () => { preselectSubject(d.title); closeUnitModal(); };
+      document.getElementById('unit-modal').classList.add('open');
+    }
+    function closeUnitModal() { document.getElementById('unit-modal').classList.remove('open'); }
+    function preselectSubject(val) {
+      const sel = document.getElementById('contact-subject');
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value.includes(val) || val.includes(sel.options[i].value)) {
+          sel.selectedIndex = i; break;
+        }
+      }
+    }
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      document.getElementById('form-feedback').style.display = 'block';
+    }
+
+    // 1. CANVAS RETINA 3D FASCIA & BIOLUMINESCENT NETWORK
+    const canvas = document.getElementById('fascia-canvas');
+    const ctx = canvas.getContext('2d');
+    let cw = 0, ch = 0, dpr = 1;
+    const NODES = [];
+    function resizeCanvas() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cw = canvas.parentElement.clientWidth;
+      ch = canvas.parentElement.clientHeight;
+      canvas.width = cw * dpr;
+      canvas.height = ch * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+    resizeCanvas();
+
+    for (let i = 0; i < 52; i++) {
+      NODES.push({
+        x: Math.random() * cw,
+        y: Math.random() * ch,
+        z: 0.35 + Math.random() * 0.9,
+        vx: (Math.random() - 0.5) * 0.32,
+        vy: (Math.random() - 0.5) * 0.32,
+        pink: i % 4 === 0
+      });
+    }
+
+    // 2. MOUSE 3D RIG + SCROLL-DRIVEN PORTAL ZOOM ENGINE (60fps rAF)
+    let targetMX = 0, targetMY = 0, curMX = 0, curMY = 0;
+    window.addEventListener('mousemove', (e) => {
+      targetMX = (e.clientX / window.innerWidth - 0.5) * 2;
+      targetMY = (e.clientY / window.innerHeight - 0.5) * 2;
+    }, { passive: true });
+
+    const heroRig = document.getElementById('hero-rig');
+    const layerRoom = document.getElementById('layer-room');
+    const layerArch = document.getElementById('layer-arch');
+    const heroText = document.getElementById('hero-text-layer');
+    const hudLeft = document.getElementById('hud-left');
+    const hudRight = document.getElementById('hud-right');
+
+    const navWrap = document.getElementById('nav-wrap');
+    const progBar = document.getElementById('scroll-progress');
+    const portalTrack = document.getElementById('nosotros');
+    const zpBg = document.getElementById('zp-bg');
+    const zpArch = document.getElementById('zp-arch');
+    const zpOrb1 = document.getElementById('zp-orb-1');
+    const zpOrb2 = document.getElementById('zp-orb-2');
+    const nosMain = document.getElementById('nos-main-card');
+    const nosVals = document.querySelectorAll('.value-card-z');
+    const zpBar = document.getElementById('zp-bar');
+
+    function tick() {
+      curMX += (targetMX - curMX) * 0.07;
+      curMY += (targetMY - curMY) * 0.07;
+
+      const sy = window.scrollY;
+      const docH = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      progBar.style.width = ((sy / docH) * 100).toFixed(2) + '%';
+
+      if (sy > 70) navWrap.classList.add('is-pill');
+      else navWrap.classList.remove('is-pill');
+
+      // Hero 3D Multilayer Parallax + Initial Scroll Zoom
+      if (sy < window.innerHeight * 1.2) {
+        const hProg = Math.min(sy / window.innerHeight, 1);
+        heroRig.style.transform = `rotateY(${curMX * 4.2}deg) rotateX(${-curMY * 3.2}deg)`;
+        layerRoom.style.transform = `translate3d(${-curMX * 18}px, ${-curMY * 12}px, -90px) scale(${1.14 + hProg * 0.16})`;
+        layerArch.style.transform = `translate3d(${curMX * 24}px, ${curMY * 16}px, 65px) scale(${1.03 + hProg * 0.55})`;
+        heroText.style.transform = `translate3d(${curMX * 10}px, ${-sy * 0.22}px, 95px)`;
+        heroText.style.opacity = String(Math.max(1 - hProg * 1.45, 0));
+        hudLeft.style.transform = `translate3d(${curMX * 22}px, ${curMY * 12 - sy * 0.15}px, 55px)`;
+        hudRight.style.transform = `translate3d(${curMX * 22}px, ${curMY * 12 - sy * 0.15}px, 55px)`;
+
+        // Draw 3D Fascia Particle Mesh
+        ctx.clearRect(0, 0, cw, ch);
+        for (let i = 0; i < NODES.length; i++) {
+          const n = NODES[i];
+          n.x += n.vx * n.z;
+          n.y += n.vy * n.z;
+          if (n.x < 0 || n.x > cw) n.vx *= -1;
+          if (n.y < 0 || n.y > ch) n.vy *= -1;
+
+          const px = n.x + curMX * 22 * n.z;
+          const py = n.y + curMY * 16 * n.z;
+
+          for (let j = i + 1; j < NODES.length; j++) {
+            const m = NODES[j];
+            const mx = m.x + curMX * 22 * m.z;
+            const my = m.y + curMY * 16 * m.z;
+            const dist = Math.hypot(px - mx, py - my);
+            if (dist < 135) {
+              ctx.strokeStyle = `rgba(56, 190, 201, ${(1 - dist / 135) * 0.22})`;
+              ctx.lineWidth = 1;
+              ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(mx, my); ctx.stroke();
+            }
+          }
+          ctx.fillStyle = n.pink ? 'rgba(248, 164, 188, 0.78)' : 'rgba(103, 220, 229, 0.82)';
+          ctx.beginPath(); ctx.arc(px, py, 1.8 * n.z, 0, Math.PI * 2); ctx.fill();
+        }
+      }
+
+      // Sticky Zoom-Through Portal (#nosotros)
+      const rect = portalTrack.getBoundingClientRect();
+      const totalScroll = portalTrack.offsetHeight - window.innerHeight;
+      if (rect.top <= window.innerHeight && rect.bottom >= 0 && totalScroll > 0) {
+        const p = Math.min(Math.max(-rect.top / totalScroll, 0), 1);
+        zpBar.style.width = (p * 100).toFixed(0) + '%';
+
+        // Foreground stone arch zooms from 1.0 -> 3.7x and fades past threshold!
+        const archScale = 1 + p * 2.75;
+        const archOpacity = Math.max(1 - p * 1.65, 0);
+        zpArch.style.transform = `scale(${archScale.toFixed(3)})`;
+        zpArch.style.opacity = archOpacity.toFixed(3);
+
+        // Background clinic sanctuary zooms smoothly 1.0 -> 1.32x
+        zpBg.style.transform = `scale(${(1 + p * 0.32).toFixed(3)})`;
+        zpOrb1.style.transform = `rotate(${p * 110}deg) scale(${0.85 + p * 0.5})`;
+        zpOrb2.style.transform = `rotate(${-p * 85}deg) scale(${0.9 + p * 0.4})`;
+
+        // Staggered 3D Z-reveal of Nosotros panel + 4 value cards
+        const cardP = Math.min(Math.max((p - 0.12) / 0.42, 0), 1);
+        nosMain.style.opacity = cardP.toFixed(3);
+        nosMain.style.transform = `translate3d(0, ${(1 - cardP) * 36}px, ${(1 - cardP) * -120}px)`;
+
+        nosVals.forEach((vc, idx) => {
+          const vp = Math.min(Math.max((p - (0.20 + idx * 0.10)) / 0.32, 0), 1);
+          vc.style.opacity = vp.toFixed(3);
+          vc.style.transform = `translate3d(0, ${(1 - vp) * 42}px, ${(1 - vp) * -90}px) scale(${0.92 + vp * 0.08})`;
+        });
+      }
+
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    // 3. 3D MAGNETIC TILT + GLARE ON SERVICIOS & CONVENIOS CARDS
+    document.querySelectorAll('.tilt-card, .tilt-holo').forEach((card) => {
+      const glare = card.querySelector('.tilt-glare');
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        const rotY = (x - 0.5) * 11;
+        const rotX = (0.5 - y) * 9;
+        card.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateY(-4px)`;
+        if (glare) {
+          glare.style.background = `radial-gradient(circle at ${(x * 100).toFixed(0)}% ${(y * 100).toFixed(0)}%, rgba(255,255,255,0.38), transparent 58%)`;
+        }
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      });
+    });
+
+    // 4. ACTIVE SECTION TRACKING IN NAVBAR
+    const navLinks = document.querySelectorAll('.nav-link[data-sec]');
+    const secIds = ['inicio', 'nosotros', 'servicios', 'tratamientos', 'convenios', 'contacto'];
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          navLinks.forEach((l) => l.classList.toggle('active', l.dataset.sec === en.target.id));
+        }
+      });
+    }, { rootMargin: '-38% 0px -52% 0px' });
+    secIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+
+    // Optional QA mode for full-page visual verification captures
+    if (new URLSearchParams(window.location.search).get('qa') === '1') {
+      const heroSec = document.getElementById('inicio');
+      heroSec.style.minHeight = '880px';
+      heroSec.style.height = '880px';
+      resizeCanvas();
+      portalTrack.style.height = '880px';
+      document.querySelector('.zoom-portal-sticky').style.height = '880px';
+      document.querySelector('.zoom-portal-sticky').style.position = 'relative';
+      zpArch.style.transform = 'scale(1.82)';
+      zpArch.style.opacity = '0.35';
+      zpBg.style.transform = 'scale(1.16)';
+      nosMain.style.opacity = '1';
+      nosMain.style.transform = 'none';
+      nosVals.forEach((vc) => { vc.style.opacity = '1'; vc.style.transform = 'none'; });
+      zpBar.style.width = '68%';
+      document.querySelectorAll('.stack-card-3d').forEach((sc) => { sc.style.position = 'relative'; sc.style.top = '0'; });
+    }
+  </script>
+</body>
+</html>
